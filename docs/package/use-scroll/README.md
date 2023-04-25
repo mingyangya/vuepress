@@ -6,7 +6,7 @@
 **输出**
 
 isScrolling - {{ isScrolling }}
-<div class="use-scroll-demo" ref="refEl">
+<div class="use-scroll-demo w-300px" ref="refEl">
     <img class="content" src="https://img1.baidu.com/it/u=3637348320,3827732358&fm=253&app=138&f=JPEG?w=667&h=500"/>
 </div>
 
