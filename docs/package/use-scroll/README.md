@@ -1,17 +1,37 @@
 # useScroll
 
 **示例**
-@[code vue](./demo.vue)
+@[code{8-} vue](./README.md)
 
 **输出**
 
-<div class="use-scroll-demo">
-    <div> {{ x }}-{{ y }}</div>
+isScrolling - {{ isScrolling }}
+<div class="use-scroll-demo" ref="refEl">
+    <img class="content" src="https://img1.baidu.com/it/u=3637348320,3827732358&fm=253&app=138&f=JPEG?w=667&h=500"/>
 </div>
 
-<script setup lang='ts'>
+<script setup>
+import { ref } from 'vue-demi'
+import { useScroll } from '@package/use-scroll'
 
-import { useScroll } from '@package/use-scroll/index.ts'
+const refEl = ref(null)
 
-const { x, y } = useScroll({ element: 1, delay: 4 })
+let { isScrolling } = useScroll(refEl, {
+  onScroll: () => {
+    console.log('scroll event')
+  }
+})
 </script>
+
+<style lang="scss" scoped>
+.use-scroll-demo {
+  height: 500px;
+  overflow: auto;
+}
+
+.content {
+  max-width: 100%;
+  height: 1000px;
+}
+
+</style>

@@ -1,9 +1,7 @@
+import path from 'path'
 import { defineUserConfig, defaultTheme } from 'vuepress'
 import { backToTopPlugin } from '@vuepress/plugin-back-to-top'
 
-import { getDirname, path } from '@vuepress/utils'
-
-const __dirname = getDirname(import.meta.url)
 
 export default {
   ...defineUserConfig({
