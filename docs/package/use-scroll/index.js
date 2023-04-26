@@ -27,7 +27,7 @@ const ARRIVED_STATE_THRESHOLD_PIXELS = 1
  */
 export const useScroll = (element, options) => {
   const { behavior = 'auto', onScroll, onStop, throttle = 0, idel = 200 } = options
-  element = isRef(element) ? element : ref(element)
+  // element = isRef(element) ? element : ref(element)
 
   let x = ref(0)
   let y = ref(0)
@@ -60,6 +60,8 @@ export const useScroll = (element, options) => {
     isScrolling.value = true
     onScroll && onScroll(event)
     onScrollEndDebounced()
+
+    console.log('scroll')
   }
 
   function scrollTo (x, y) {
@@ -67,6 +69,7 @@ export const useScroll = (element, options) => {
   }
 
   const init = () => {
+    console.log(element)
     useEventListener(element, 'scroll', onScrollHandler, options)
   }
 

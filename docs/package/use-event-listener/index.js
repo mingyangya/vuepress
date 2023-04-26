@@ -1,4 +1,4 @@
-import { watch } from "vue-demi"
+import { watch, watchEffect } from "vue-demi"
 
 /**
  * 绑定事件
@@ -21,9 +21,11 @@ export const useEventListener = (el, event = '', listener = null, options = {}) 
     return () => el.removeEventListener(event, listener, options)
   }
 
+  console.log(el, 'element', typeof el, unref(el))
   watch(el, (newEl) => {
+    console.log(newEl, 'watch')
     newEl && cleanups.push(register(newEl, event, listener, options))
-  }, {immediate: true, deep: true})
+  }, {immediate: true, flush: 'post' })
 
 
   const stop = () => {
