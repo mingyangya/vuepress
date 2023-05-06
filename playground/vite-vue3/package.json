@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.1",
   "scripts": {
-    "dev": "vite --force",
+    "dev": "vite",
     "build": "eslint src --ext .js,.vue && vite build",
     "preview": "vite preview --port 3000",
     "lint": "eslint src --fix --ext .ts,.tsx,.js,.vue",
@@ -16,7 +16,6 @@
     "js-cookie": "^2.2.1",
     "unplugin-vue-components": "^0.22.4",
     "vue": "^3.2.37",
-    "vue-demi": "^0.14.0",
     "vue-router": "^4.0.0-0",
     "vuex": "^4.0.0-0"
   },

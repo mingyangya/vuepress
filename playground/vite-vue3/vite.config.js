@@ -18,6 +18,10 @@ function resolve(dir) {
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  // optimizeDeps: {
+  //   exclude: ['@vueuse/core'],
+  //   force: true,
+  // },
   base: '/',
   assetsDir: 'static/code',
   build: {

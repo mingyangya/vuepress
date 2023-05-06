@@ -1,4 +1,6 @@
-import { computed, reactive, ref, isRef } from 'vue-demi'
+import { computed, reactive, ref, isRef } from 'vue'
+
+import { onMounted } from 'vue'
 
 import { useEventListener } from '@package/use-event-listener'
 import { useDebounce } from '@package/use-debounce'
@@ -25,14 +27,14 @@ const ARRIVED_STATE_THRESHOLD_PIXELS = 1
 
  * @returns 
  */
-export const useScroll = (element, options) => {
+export const useScroll = (element, options = {}) => {
   const { behavior = 'auto', onScroll, onStop, throttle = 0, idel = 200 } = options
   // element = isRef(element) ? element : ref(element)
 
   let x = ref(0)
   let y = ref(0)
   let isScrolling = ref(false)
-  
+
   const arrivedState = reactive({
     left: true,
     right: false,
@@ -43,7 +45,7 @@ export const useScroll = (element, options) => {
   // 滚动结束
   const onScrollEnd = (event) => {
     if (!isScrolling.value) return
-    
+
     isScrolling.value = false
 
     onStop && onStop(event)
@@ -53,7 +55,7 @@ export const useScroll = (element, options) => {
 
   const onScrollHandler = (event) => {
     let { scrollLeft, scrollTop } = event.target
-    
+
     x.value = scrollLeft
     y.value = scrollTop
 
@@ -61,15 +63,14 @@ export const useScroll = (element, options) => {
     onScroll && onScroll(event)
     onScrollEndDebounced()
 
-    console.log('scroll')
+    console.log('scroll custom')
   }
 
-  function scrollTo (x, y) {
+  function scrollTo(x, y) {
 
   }
 
   const init = () => {
-    console.log(element)
     useEventListener(element, 'scroll', onScrollHandler, options)
   }
 
