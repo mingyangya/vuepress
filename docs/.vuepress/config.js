@@ -8,6 +8,7 @@ export default {
     lang: 'zh-CN',
     title: '你好， VuePress ！',
     description: '这是我的第一个 VuePress 站点',
+    base: '/vuepress/'
   }),
   alias: {
     '@package': path.resolve(__dirname, '../package')
@@ -29,6 +30,6 @@ export default {
 
   }),
   plugins: [
-    backToTopPlugin(),
+    // backToTopPlugin(),
   ]
 }

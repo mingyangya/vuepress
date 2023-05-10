@@ -1,12 +1,6 @@
 <template>
   <div>
-    isScrolling - {{ isScrolling }} 
-    isScrolling2 -- {{isScrolling2}}
     <div class="use-scroll-demo w-300px" ref="refEl">
-      <img class="content" src="https://img1.baidu.com/it/u=3637348320,3827732358&fm=253&app=138&f=JPEG?w=667&h=500" />
-    </div>
-
-    <div class="use-scroll-demo w-300px mt-3" ref="refEl2">
       <img class="content" src="https://img1.baidu.com/it/u=3637348320,3827732358&fm=253&app=138&f=JPEG?w=667&h=500" />
     </div>
   </div>
@@ -14,16 +8,11 @@
 
 <script setup>
 import { ref } from 'vue'
-import { useScroll as useScroll2 } from '@package'
-// import { useScroll } from '@vueuse/core/index.mjs'
-import { useScroll } from '@vueuse/core'
+import { useScroll } from '@package'
 
 const refEl = ref(null)
-const refEl2 = ref(null)
 
-let { isScrolling } = useScroll(refEl)
-
-let { isScrolling : isScrolling2 } = useScroll2(refEl2)
+let { isScrolling, x, y, directions } = useScroll(refEl)
 </script>
 
 <style lang="scss" scoped>
@@ -37,5 +26,4 @@ let { isScrolling : isScrolling2 } = useScroll2(refEl2)
   max-width: 100%;
   height: 1000px;
 }
-
 </style>
