@@ -1,0 +1,1 @@
+import{_ as t,p as s,q as a,R as e,t as c}from"./framework-6700cb35.js";const n={},r=e("h1",{id:"test",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#test","aria-hidden":"true"},"#"),c(" test")],-1),o=[r];function _(d,i){return s(),a("div",null,o)}const l=t(n,[["render",_],["__file","index.html.vue"]]);export{l as default};
